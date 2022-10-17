@@ -1,0 +1,27 @@
+Suponhamos que temos um cenário financeiro que contem um gerenciamento de Contas Bancárias com controle de transações de depósitos e saques. Sempre que as operações de saques e depósitos foram efetuadas, automaticamente o saldo da conta bancaria deve ser acrescido ou reduzido.
+Para simular essa operação utilizaremos o banco de dados SQL Server utilizando a linguagem Transact-SQL, através do SGBD Microsoft SQL Serve Management Studio 2017.
+Instruções que devem ser executadas:
+
+•	Criar uma tabela que armazene os dados da conta bancaria, contendo os campos abaixo:
+
+	Identificador (chave primaria, incrementado automaticamente);
+	Descrição/Nome;
+	Saldo Inicial;
+	Data da Abertura;
+	Saldo Atual;
+
+•	Criar tabela que armazene as transações financeiras, contendo os campos abaixo:
+
+	Identificador (chave primaria, incrementado automaticamente);
+	Identificador da conta (chave estrangeira que associe a transação financeira a conta bancaria);
+	Tipo de transação (deposito ou saque);
+	Data da transação;
+	Valor;
+
+•	Construir um gatilho (TRIGGERS) que seja executado após a inserção de um novo registro na tabela de transações financeiras.
+
+•	Inserir 2 (duas) contas bancarias.
+
+•	Inserir ao menos 10 (dez) registros na tabela de transações financeiras, contendo tipos de transações (saque e deposito) diferentes.
+
+•	Construir uma consulta (SELECT) que retorne o saldo inicial da conta bancaria utilizando a tabela que armazena as transações financeiras e saldo atual da conta bancaria.

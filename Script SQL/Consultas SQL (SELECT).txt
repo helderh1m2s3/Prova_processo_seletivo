@@ -1,0 +1,28 @@
+select tipo_trans, valor_trans from transacao where n_conta_trans='4';
+
+select tipo_trans, valor_trans from transacao where n_conta_trans='5';
+
+
+
+while exists (select tipo_trans, valor_trans from transacao where n_conta_trans='4' and <> null)
+	begin
+		print 'ok'
+	end;
+
+
+
+
+declare @tipo_trans char(10),
+		@valor_trans decimal(10,2),
+		@n_conta_trans int
+
+	select @n_conta_trans = n_conta_trans, @tipo_trans = tipo_trans, @valor_trans = valor_trans from inserted;
+
+	if @tipo_trans = 'deposito'
+		begin
+			update contas set s_atual = s_atual + @valor_trans where n_conta = @n_conta_trans
+		end;
+	if @tipo_trans = 'saque'
+		begin
+			update contas set s_atual = s_atual - @valor_trans where n_conta = @n_conta_trans
+		end;

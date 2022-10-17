@@ -1,0 +1,23 @@
+go
+create trigger atualizarSaldoAtual
+on transacao 
+after insert 
+as
+begin
+
+	declare @tipo_trans char(10),
+			@valor_trans decimal(10,2),
+			@n_conta_trans int
+
+	select @n_conta_trans = n_conta_trans, @tipo_trans = tipo_trans, @valor_trans = valor_trans from inserted;
+
+	if @tipo_trans = 'deposito'
+		begin
+			update contas set s_atual = s_atual + @valor_trans where n_conta = @n_conta_trans
+		end;
+	if @tipo_trans = 'saque'
+		begin
+			update contas set s_atual = s_atual - @valor_trans where n_conta = @n_conta_trans
+		end;
+
+end;

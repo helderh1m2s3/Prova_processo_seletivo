@@ -1,0 +1,18 @@
+//Criação da Tabela que guarda informações de registro de Contas
+
+create table contas(
+n_conta int IDENTITY (0,1) NOT NULL PRIMARY KEY,
+nome_propiet char(50) NOT NULL,
+s_inicial decimal(10,2),
+data_abertura date NOT NULL,
+s_atual decimal(10,2) NOT NULL);
+
+
+//Criação da Tabela que guarda informações de registro de Transações
+
+create table transacao (
+id_transacao int IDENTITY (0,1) NOT NULL PRIMARY KEY,
+n_conta_trans int NOT NULL REFERENCES contas (n_conta),
+tipo_trans char(10) NOT NULL CHECK( tipo_trans in ('saque','deposito')),
+data_trans date NOT NULL,
+valor_trans decimal(10,2) NOT NULL);

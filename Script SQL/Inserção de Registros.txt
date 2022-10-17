@@ -1,0 +1,29 @@
+// Inserção de registros na tabela de Contas
+
+insert into contas (nome_propiet,s_inicial,data_abertura,s_atual) values
+('Helder martins de Sousa', 0, getdate(),0),
+('Eveline de Arruda Martins', 0, getdate(),0);
+
+
+// Inserção de registros na tabela de Transações
+
+insert into transacao(n_conta_trans,tipo_trans,data_trans,valor_trans) values
+(4,'deposito',getdate(),538.85);
+insert into transacao(n_conta_trans,tipo_trans,data_trans,valor_trans) values
+(5,'deposito',getdate(),963.52);
+insert into transacao(n_conta_trans,tipo_trans,data_trans,valor_trans) values
+(4,'deposito',getdate(),9827.85);
+insert into transacao(n_conta_trans,tipo_trans,data_trans,valor_trans) values
+(5,'deposito',getdate(),8563.52);
+insert into transacao(n_conta_trans,tipo_trans,data_trans,valor_trans) values
+(4,'saque',getdate(),538.85);
+insert into transacao(n_conta_trans,tipo_trans,data_trans,valor_trans) values
+(5,'saque',getdate(),963.52);
+insert into transacao(n_conta_trans,tipo_trans,data_trans,valor_trans) values
+(4,'saque',getdate(),300);
+insert into transacao(n_conta_trans,tipo_trans,data_trans,valor_trans) values
+(5,'saque',getdate(),800);
+insert into transacao(n_conta_trans,tipo_trans,data_trans,valor_trans) values
+(4,'saque',getdate(),800);
+insert into transacao(n_conta_trans,tipo_trans,data_trans,valor_trans) values
+(5,'saque',getdate(),300);
